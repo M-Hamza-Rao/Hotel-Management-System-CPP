@@ -1,4 +1,7 @@
 #include "HotelManager.h"
+#include "Room.h"
+#include "Reservation.h"
+#include "Customer.h"
 #include <iostream>
 using namespace std;
 
@@ -8,9 +11,37 @@ HotelManager::HotelManager(string name) {
 }
 
 
-void HotelManager::viewReservations() {
+void HotelManager::viewReservations(MYSQL *conn) {
 	//View Reservation
-    }
+	int option;
+	cout<< "1 to search reservation by reservation ID. \n";
+	cout<< "2 to search reservation by Customer ID. \n";
+	cout<< "3 to to view all current reservations. \n";
+	cout<< "4 to to view all Cancelled reservations. \n";
+	cout<< "Enter your choice: ";
+	cin>>option;
+	if(option==1){
+		int id;
+		cout<< "Enter Reservation ID: ";
+		cin>>id;
+		Reservation::getReservationByID(conn, id);
+	}
+	else if(option==2){
+		string id;
+		cout<< "Enter Customer ID: ";
+		cin.ignore();
+		getline(cin, id);
+		Reservation::viewReservationsByCustomer(conn, id);
+	}
+	else if(option==3){
+		Reservation::viewAllActiveReservations(conn);
+	}
+	else if(option==4){
+		Reservation::viewAllCancelledReservations(conn);
+	}
+	
+	
+}
     
 void HotelManager::addRoom(string type, MYSQL *conn) {
     try {
@@ -164,4 +195,8 @@ void HotelManager::getRoomCountByType(MYSQL *conn) {
 
         mysql_free_result(res);  
     }
+}
+
+void HotelManager::getCustomerInfo(MYSQL *conn) {
+	Customer::showCustomerInfoByID(conn);
 }

@@ -15,11 +15,12 @@ public:
     void addCustomer(Customer customer);
     void addReservation(MYSQL *conn);
     void cancelReservation(MYSQL *conn);
-    void viewReservations();
+    void viewReservations(MYSQL *conn);
     void viewPaymentStatus();
     void addRoom(std::string type, MYSQL *conn); 
     void getRoomCountByType(MYSQL *conn);
     void updateReservationPaymentStatus(MYSQL *conn);
+    void getCustomerInfo(MYSQL *conn);
 };
 
 #endif // HOTELMANAGER_H

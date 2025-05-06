@@ -16,6 +16,9 @@ public:
     void displayCustomerInfo();
     std::string getCustomerID();
     void addCustomer(MYSQL *conn);
+    static std::string getCustomerNameByID(MYSQL *conn,std::string customer_id);
+    static void showCustomerInfoByID(MYSQL *conn);
+
 };
 
 #endif // CUSTOMER_H

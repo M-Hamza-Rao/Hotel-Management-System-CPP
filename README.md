@@ -1,6 +1,6 @@
 🏨 Hotel Management System (C++)
 📖 Overview
-This is a simple Hotel Management System developed in C++ using Dev-C++. The application allows hotel staff to manage customer data, room reservations, and bookings. It connects to a MySQL database using libmysql.dll for persistent data storage.
+This is a simple Hotel Management System developed in C++ using Dev-C++. The application allows hotel staff to manage customer data, room reservations, and bookings. It connects to a MySQL database using libmysql.dll for persistent data storage...
 
 📂 Project Structure
 File/Folder	Description
